@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>StudyPal</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -70,7 +70,7 @@
   </p>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <!-- Feature 1 -->
-    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow hover:shadow-md transition p-4 flex flex-col items-center text-center">
+    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow transition transform hover:scale-105 hover:shadow-lg hover:bg-gradient-to-br hover:from-blue-50 hover:via-white hover:to-blue-100 p-4 flex flex-col items-center text-center">
       <div class="mb-2 text-blue-500 text-2xl">
         🤖
       </div>
@@ -82,7 +82,7 @@
       </p>
     </div>
     <!-- Feature 2 -->
-    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow hover:shadow-md transition p-4 flex flex-col items-center text-center">
+    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow transition transform hover:scale-105 hover:shadow-lg hover:bg-gradient-to-br hover:from-blue-50 hover:via-white hover:to-blue-100 p-4 flex flex-col items-center text-center">
       <div class="mb-2 text-blue-500 text-2xl">
         🎯
       </div>
@@ -94,7 +94,7 @@
       </p>
     </div>
     <!-- Feature 3 -->
-    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow hover:shadow-md transition p-4 flex flex-col items-center text-center">
+    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow transition transform hover:scale-105 hover:shadow-lg hover:bg-gradient-to-br hover:from-blue-50 hover:via-white hover:to-blue-100 p-4 flex flex-col items-center text-center">
       <div class="mb-2 text-blue-500 text-2xl">
         📈
       </div>
@@ -106,7 +106,7 @@
       </p>
     </div>
     <!-- Feature 4 -->
-    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow hover:shadow-md transition p-4 flex flex-col items-center text-center">
+    <div class="rounded-md bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-80 backdrop-blur shadow transition transform hover:scale-105 hover:shadow-lg hover:bg-gradient-to-br hover:from-blue-50 hover:via-white hover:to-blue-100 p-4 flex flex-col items-center text-center">
       <div class="mb-2 text-blue-500 text-2xl">
         📚
       </div>
@@ -119,6 +119,16 @@
     </div>
   </div>
 </section>
+
+
+<footer class="w-full bg-white border-t mt-12">
+  <div class="max-w-4xl mx-auto px-4 py-2 text-center text-sm text-gray-500">
+    © 2025 <span class="font-semibold text-blue-600">StudyPal</span>. All rights reserved.
+  </div>
+</footer>
+
+
+
 
 
 

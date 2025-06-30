@@ -1,52 +1,119 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StudyPal - Register</title>
+  @vite('resources/css/app.css')
+</head>
+<body class="bg-gradient-to-b from-white to-blue-50 min-h-screen flex flex-col items-center justify-center px-4 py-8">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+  <!-- Back Button -->
+  <div class="w-full max-w-sm mb-4">
+    <a href="{{ url('/') }}" class="flex items-center text-sm text-blue-600 hover:text-blue-800">
+      <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to Home
+    </a>
+  </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+  <!-- Register Form -->
+  <div class="w-full max-w-sm space-y-6">
+    <h1 class="text-2xl sm:text-3xl font-bold text-center bg-gradient-to-r from-blue-400 to-blue-700 bg-clip-text text-transparent">
+      Create Your Account
+    </h1>
+    <p class="text-sm text-center text-blue-600">
+      Start learning with StudyPal today
+    </p>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <form method="POST" action="{{ route('register') }}" class="space-y-4">
+      @csrf
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+      <!-- Name -->
+      <div>
+        <label for="name" class="block text-sm text-gray-700">Name</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          value="{{ old('name') }}"
+          required
+          autofocus
+          autocomplete="name"
+          class="block w-full mt-1 rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200 text-sm"
+        />
+        @error('name')
+          <div class="mt-2 text-xs text-red-600">{{ $message }}</div>
+        @enderror
+      </div>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm text-gray-700">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          value="{{ old('email') }}"
+          required
+          autocomplete="username"
+          class="block w-full mt-1 rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200 text-sm"
+        />
+        @error('email')
+          <div class="mt-2 text-xs text-red-600">{{ $message }}</div>
+        @enderror
+      </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm text-gray-700">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          required
+          autocomplete="new-password"
+          class="block w-full mt-1 rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200 text-sm"
+        />
+        @error('password')
+          <div class="mt-2 text-xs text-red-600">{{ $message }}</div>
+        @enderror
+      </div>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+      <!-- Confirm Password -->
+      <div>
+        <label for="password_confirmation" class="block text-sm text-gray-700">Confirm Password</label>
+        <input
+          id="password_confirmation"
+          name="password_confirmation"
+          type="password"
+          required
+          autocomplete="new-password"
+          class="block w-full mt-1 rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-200 text-sm"
+        />
+        @error('password_confirmation')
+          <div class="mt-2 text-xs text-red-600">{{ $message }}</div>
+        @enderror
+      </div>
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-4">
+        <a
+          class="text-xs text-blue-600 hover:text-blue-800 underline text-center sm:text-left"
+          href="{{ route('login') }}"
+        >
+          Already registered?
+        </a>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+        <button
+          type="submit"
+          class="inline-block w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white text-sm font-medium px-4 py-2 rounded-md transition duration-200"
+        >
+          Register
+        </button>
+      </div>
     </form>
-</x-guest-layout>
+  </div>
+</body>
+</html>
